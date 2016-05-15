@@ -1,7 +1,5 @@
+<!--Elimarie Morales Santiago-->
+<!--Advanced Server-Side Languages - Online-->
+<!--Professor Orcun Tagtekin-->
+
 <?php
-/**
- * Created by PhpStorm.
- * User: iglitzi
- * Date: 5/11/16
- * Time: 10:30 PM
- */

@@ -1,3 +1,7 @@
+<!--Elimarie Morales Santiago-->
+<!--Advanced Server-Side Languages - Online-->
+<!--Professor Orcun Tagtekin-->
+
 <h1>Add a List</h1>
 <p>Please fill out the form below to create a new task list</p>
 <!--Display Errors-->
@@ -43,3 +47,7 @@ $data = array(
     <?php echo form_submit($data); ?>
 </p>
 <?php echo form_close(); ?>
+
+<a href="<?php
+echo base_url();
+?>lists"><- Go Back to Lists</a>

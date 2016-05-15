@@ -63,6 +63,9 @@ $data = array(
     <?php
     echo form_submit($data);
     ?>
+     <button type="button" class="btn btn-warning">
+    <a href="<?php echo base_url(); ?>" style="color: #fff">Cancel</a>
+    </button>
 </p>
 <?php
 echo form_close();

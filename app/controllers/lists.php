@@ -113,3 +113,8 @@ class Lists extends CI_Controller {
         redirect('lists/index');
     }
 }
+
+
+?>
+
+

@@ -1,3 +1,7 @@
+<!--Elimarie Morales Santiago-->
+<!--Advanced Server-Side Languages - Online-->
+<!--Professor Orcun Tagtekin-->
+
 <h1>Edit List</h1>
 <!--Display Errors-->
 <?php echo validation_errors('<p class="text-error">'); ?>
@@ -33,3 +37,6 @@ $data = array(
     <?php echo form_submit($data); ?>
 </p>
 <?php echo form_close(); ?>
+<a href="<?php
+echo base_url();
+?>lists"><- Go Back to Lists</a>

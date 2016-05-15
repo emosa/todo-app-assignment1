@@ -1,7 +1,8 @@
 @charset "UTF-8";
 /*
 <!--Elimarie Morales Santiago-->
-<!--Advance Server-side Languages - Online-->
+<!--Advanced Server-Side Languages - Online-->
+<!--Professor Orcun Tagtekin-->
 */
 
 
@@ -10,7 +11,7 @@ body  {
     color:#fff;
     width:100%;
     margin:0px auto;
-	background-image:url(../img/bck2.jpg);
+	background-image:url(../img/bck4.jpg);
 	background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -66,6 +67,10 @@ h4{
 	-moz-border-radius: 20px;
 	border-radius: 20px;
 }
+
+.ctask{
+	
+	size: 2em;}
 .footer{
    bottom:0;
    width:100%;
@@ -74,10 +79,11 @@ h4{
 }
 
 footer, .push{
+	
 	height: 45px;
 	background-color:#a0bbab;
 	border:#f3d432 1px solid;
-	padding-top: 20px;
+	padding-top: 40px;
     padding-right: 20px;
     padding-bottom: 5px;
     padding-left: 20px;
@@ -140,8 +146,14 @@ ul#info{
 	border-radius: 20px;
     width:65%;
 	color:#bd7d23;
+	font-size: 2em;
 }
 
+#info, .talk{
+	font-size: 25px;
+	padding-bottom: 20px;
+	}
+	
 ul#info li{
     padding:0;
     margin:0;

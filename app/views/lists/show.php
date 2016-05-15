@@ -1,3 +1,7 @@
+<!--Elimarie Morales Santiago-->
+<!--Advanced Server-Side Languages - Online-->
+<!--Professor Orcun Tagtekin-->
+
 <ul id="actions">
     <h4>List Actions</h4>
     <li> <a href="<?php
@@ -19,6 +23,7 @@
 <h1><?php
     echo $list->list_name;
     ?></h1>
+
 <?php
 if ($this->session->flashdata('task_deleted')):
     ?>
@@ -64,6 +69,7 @@ if ($this->session->flashdata('marked_new')):
     <?php
 endif;
 ?>
+<div id="info">
 Created on:  <strong><?php
     echo date("n-j-Y", strtotime($list->create_date));
     ?></strong>
@@ -125,7 +131,9 @@ else:
     <?php
 endif;
 ?>
+</div>
 <hr />
-<a href="<?php
-echo base_url();
-?>lists"><- Go Back to Lists</a>
+<button type="button" class="btn btn-success">
+<a href="<?php echo base_url(); ?>" style="color: #fff">Go Back</a>
+</button>
+

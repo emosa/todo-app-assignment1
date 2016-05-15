@@ -1,3 +1,7 @@
+<!--Elimarie Morales Santiago-->
+<!--Advanced Server-Side Languages - Online-->
+<!--Professor Orcun Tagtekin-->
+
 <ul id="actions">
     <h4>Task Actions</h4>
     <li> <a href="<?php
@@ -58,10 +62,10 @@
     ?>
 
     <li>Due Date: <strong><?php
-            echo date("n-j-Y", strtotime($task->create_date));
+            echo date("n-j-Y", strtotime($task->due_date));
             ?></strong></li>
 </ul><br />
-<div style="max-width:500px;"><?php
+<div style="max-width:500px; height: 80px; font-size: 2em;"><?php
     echo $task->task_body;
     ?></div>
 <br /><hr />
