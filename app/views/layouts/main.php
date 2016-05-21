@@ -10,8 +10,10 @@
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/custom.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/logo-nav.css" rel="stylesheet">
+    <script src="<?php echo base_url(); ?>assets/js/ajaxfileupload.js"></script>
+    <script src="<?php echo base_url()?>assets/js/site.js"></script>
 
-    <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-1.12.2.min.js"></script>
 </head>
 <body>
 <div class="navbar navbar-light" style="background-color: rgba(240, 233, 183, 0.8);">
@@ -63,7 +65,7 @@
     </div><!--/row-->
     <hr>
 
-    <div class="footer" style=" padding-top: 90px;">
+    <div class="footer" style=" padding-top: 44px;">
         <footer class="push">
             <p>&copy; 2016 Elimarie Morales Santiago ASL</p>
         </footer>

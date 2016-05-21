@@ -34,14 +34,7 @@ $data = array(
 <?php $data = array("value" => "Add List",
                     "name"  => "submit",
                     "class" => "btn btn-success"); ?>
-<p>
 
-    <?php echo form_open_multipart('upload/do_upload');?>
-
-    <input type="file" name="userfile" size="20" />
-
-
-</p>
 
 <p>
     <?php echo form_submit($data); ?>

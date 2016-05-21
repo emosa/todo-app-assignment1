@@ -4,43 +4,50 @@
 
 <?php
 
-class Upload extends CI_Controller {
+public function upload_file()
+{
+    $status = "";
+    $msg = "";
+    $file_element_name = 'userfile';
 
-    function index()
+    if (empty($_POST['title']))
     {
-        if (isset($_POST['submit']))
+        $status = "error";
+        $msg = "Please enter a title";
+    }
+
+    if ($status != "error")
+    {
+        $config['upload_path'] = './files/';
+        $config['allowed_types'] = 'gif|jpg|png|doc|txt';
+        $config['max_size'] = 1024 * 8;
+        $config['encrypt_name'] = TRUE;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload($file_element_name))
         {
-            $this->load->library('upload');
-            //$this->uploadfile($_FILES['userfile']);
-            $files = $_FILES;
-            $cpt = count($_FILES['userfile']['name']);
-            for($i=0; $i<$cpt; $i++)
+            $status = 'error';
+            $msg = $this->upload->display_errors('', '');
+        }
+        else
+        {
+            $data = $this->upload->data();
+            $file_id = $this->files_model->insert_file($data['file_name'], $_POST['title']);
+            if($file_id)
             {
-
-                $_FILES['userfile']['name']= $files['userfile']['name'][$i];
-                $_FILES['userfile']['type']= $files['userfile']['type'][$i];
-                $_FILES['userfile']['tmp_name']= $files['userfile']['tmp_name'][$i];
-                $_FILES['userfile']['error']= $files['userfile']['error'][$i];
-                $_FILES['userfile']['size']= $files['userfile']['size'][$i];
-
-
-                $this->upload->initialize($this->set_upload_options());
-                $this->upload->do_upload();
-                $this->upload->data();
-                $ext = pathinfo($filename, PATHINFO_EXTENSION);
-                $img_ext_chk = array('jpg','png','gif','jpeg','JPG','PNG', 'GIF', 'JPEG');
-                if (in_array($ext,$img_ext_chk))
-                {
-                    $this->asset->add_image($filename);
-                }
-                else
-                {
-                    $this->asset->add_document($filename);
-                }
+                $status = "success";
+                $msg = "File successfully uploaded";
+            }
+            else
+            {
+                unlink($data['full_path']);
+                $status = "error";
+                $msg = "Something went wrong when saving the file, please try again.";
             }
         }
+        @unlink($_FILES[$file_element_name]);
     }
+    echo json_encode(array('status' => $status, 'msg' => $msg));
 }
-$this->load->view("upload");
 
-?>
