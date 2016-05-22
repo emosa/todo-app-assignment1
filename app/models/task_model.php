@@ -11,6 +11,7 @@ class Task_model extends CI_Model{
             tasks.id,
             tasks.create_date,
             tasks.due_date,
+            tasks.file_id,
             tasks.task_body,
             tasks.is_complete,
             lists.id as list_id,

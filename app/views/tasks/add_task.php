@@ -4,11 +4,15 @@
         ?></strong></p>
 
 <!--Display Errors-->
+<?php echo $error;?> 
 <?php
+
 echo validation_errors('<p class="text-error">');
 ?>
+    <?php //echo form_open_multipart('upload/do_upload');?>
 <?php
-echo form_open('tasks/add/' . $this->uri->segment(3) . '');
+
+echo form_open_multipart('tasks/add/' . $this->uri->segment(3) . '');
 ?>
 
 <!--Field: Task Name-->
@@ -51,22 +55,13 @@ echo form_open('tasks/add/' . $this->uri->segment(3) . '');
     <input type="date" name="due_date" />
 </p>
 <h4>Upload File</h4>
-<form method="post" action="" id="upload_file">
     <label for="title">Title</label>
     <input type="text" name="title" id="title" value="" />
 
     <label for="userfile">File</label>
-    <input type="file" name="userfile" id="userfile" size="20" />
-
-</form>
-<h2>Files</h2>
-<div id="files"></div>
-<p>
-
-    <?php echo form_open_multipart('upload/do_upload');?>
+    <input type="file" name="file" id="userfile" size="20" />
 
 
-</p>
 
 
 

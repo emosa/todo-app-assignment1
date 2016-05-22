@@ -60,19 +60,22 @@
         <?php
     endif;
     ?>
+    <?php if($file->filename){ ?>
+   <li>File:  <strong><a href="<?php echo(base_url()."uploads/".$file->filename);?>"  target="_blank">
+		<?php echo  $file->title;?> 
+        </a>
+        </strong></li>
+    <?php
+	}
+        
+     ?>
 
     <li>Due Date: <strong><?php
             echo date("n-j-Y", strtotime($task->due_date));
             ?></strong></li>
 </ul><br />
-<div style="max-width:500px; height: 80px; font-size: 2em;"><?php
-    echo $task->task_body;
-    ?></div>
+<div style="max-width:500px; height: 80px; font-size: 2em;"><?php echo $task->task_body; ?></div>
 <br /><hr />
-<- Go Back to <a href="<?php
-echo base_url();
-?>lists/show/<?php
-echo $task->list_id;
-?>"><?php
-    echo $task->list_name;
-    ?></a>
+<- Go Back to <a href="<?php echo base_url(); ?>lists/show/<?php echo $task->list_id; ?>">
+    <?php echo $task->list_name; ?></a>
+

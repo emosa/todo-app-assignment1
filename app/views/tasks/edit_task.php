@@ -12,7 +12,7 @@
 echo validation_errors('<p class="text-error">');
 ?>
 <?php
-echo form_open('tasks/edit/' . $this->uri->segment(3) . '');
+echo form_open_multipart('tasks/edit/' . $this->uri->segment(3) . '');
 ?>
 
 <!--Field: Task Name-->
@@ -65,6 +65,30 @@ $data = array(
     "class" => "btn btn-success"
 );
 ?>
+
+<p>
+    <?php if($file->filename){ ?>
+   <li>Already Uploaded File:  <strong><a href="<?php echo(base_url()."uploads/".$file->filename);?>"  target="_blank">
+		<?php echo  $file->title;?> 
+        </a>
+        </strong></li>
+    <?php
+	}
+        
+     ?>
+</p>
+
+<h4>Upload  New File</h4>
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" value="" />
+    <input type="hidden" name="alreadyuploadedfile"  value="<?php echo $file->id ?>" />
+
+    <label for="userfile">File</label>
+    <input type="file" name="file" id="userfile" size="20" />
+
+
+
+
 <p>
     <?php
     echo form_submit($data);

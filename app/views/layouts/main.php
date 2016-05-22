@@ -7,13 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <a href="index.php"><title>To-Do's Always Remember</title></a>
-    <link href="<?php echo base_url(); ?>assets/css/bootstrap.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/css/custom.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/css/logo-nav.css" rel="stylesheet">
-    <script src="<?php echo base_url(); ?>assets/js/ajaxfileupload.js"></script>
-    <script src="<?php echo base_url()?>assets/js/site.js"></script>
+    <link href="<?php echo base_url(); ?>assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url(); ?>assets/css/custom.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url(); ?>assets/css/logo-nav.css" rel="stylesheet" type="text/css">
 
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-1.12.2.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery-1.12.2.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="navbar navbar-light" style="background-color: rgba(240, 233, 183, 0.8);">

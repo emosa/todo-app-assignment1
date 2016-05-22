@@ -9,10 +9,12 @@ class Tasks extends CI_Controller
 
     function show($id)
     {
-
+			$this->load->model('Files_Model');
         // Get single task info
 
         $data['task'] = $this->Task_model->get_task($id);
+		//print_r($data['task']->file_id);exit;
+        $data['file'] = $this->Files_Model->get_files($data['task']->file_id);
 
         // Check if marked complete
 
@@ -30,9 +32,16 @@ class Tasks extends CI_Controller
     {
         $this->form_validation->set_rules('task_name', 'Task Name', 'trim|required');
         $this->form_validation->set_rules('task_body', 'Task Body', 'trim');
-        if ($this->form_validation->run() == FALSE)
-        {
 
+
+		 $config['upload_path']   = './uploads/'; 
+         $config['allowed_types'] = 'gif|jpg|png|jpeg|zip|rar|xlsx|xls|pdf|csv|txt|doc|docx|ppt'; 
+         $config['max_size']      = 2048; 
+         $this->load->library('upload', $config);
+
+            $data['error'] =''; 
+		if ($this->form_validation->run() == FALSE)
+        {
             // Get list name for view
 
             $data['list_name'] = $this->Task_model->get_list_name($list_id);
@@ -42,16 +51,42 @@ class Tasks extends CI_Controller
             $data['main_content'] = 'tasks/add_task';
             $this->load->view('layouts/main', $data);
         }
+		else  if ( ! $this->upload->do_upload('file')) {
+            $data['error'] = $this->upload->display_errors(); 
+			
+
+            $data['list_name'] = $this->Task_model->get_list_name($list_id);
+
+            // Load view and layout
+
+            $data['main_content'] = 'tasks/add_task';
+            $this->load->view('layouts/main', $data);
+
+            //$this->load->view('upload_form', $error); 
+         }
         else
         {
 
+			$this->load->model('Files_Model');
+			$filename = ($this->upload->data('file_name'));
+            $data = array(
+                'filename' => $filename ,
+                'title' => $this->input->post('title')
+            );
+			$this->Files_Model->insert_file($filename,$this->input->post('title'));
+			$file_id = $this->db->insert_id();
             // Post values to array
+
+            //$data = array('upload_data' => $this->upload->data()); 
+
+
 
             $data = array(
                 'task_name' => $this->input->post('task_name') ,
                 'task_body' => $this->input->post('task_body') ,
                 'due_date' => $this->input->post('due_date') ,
-                'list_id' => $list_id
+                'list_id' => $list_id ,
+                'file_id' => $file_id
             );
             if ($this->Task_model->create_task($data))
             {
@@ -70,6 +105,16 @@ class Tasks extends CI_Controller
     {
         $this->form_validation->set_rules('task_name', 'Task Name', 'trim');
         $this->form_validation->set_rules('task_body', 'Task Body', 'trim');
+		
+		 $config['upload_path']   = './uploads/'; 
+         $config['allowed_types'] = 'gif|jpg|png|jpeg|zip|rar|xlsx|xls|pdf|csv|txt|doc|docx|ppt'; 
+         $config['max_size']      = 2048; 
+         $this->load->library('upload', $config);
+
+            $data['error'] =''; 
+
+
+
         if ($this->form_validation->run() == FALSE)
         {
 
@@ -87,6 +132,14 @@ class Tasks extends CI_Controller
 
             // Load view and layout
 
+			$this->load->model('Files_Model');
+
+			//print_r($data['task']->file_id);exit;
+			$data['file'] = $this->Files_Model->get_files($data['this_task']->file_id);
+
+
+
+
             $data['main_content'] = 'tasks/edit_task';
             $this->load->view('layouts/main', $data);
         }
@@ -94,17 +147,53 @@ class Tasks extends CI_Controller
         {
 
             // Get list id
+			//$this->upload->do_upload('file');
+			//$this->upload->data('file_name');exit;
 
-            $list_id = $this->Task_model->get_task_list_id($task_id);
+ 			$this->input->post('alreadyuploadedfile');
+			if($this->upload->do_upload('file'))
+			{
+			
+				$this->load->model('Files_Model');
+				$filename = ($this->upload->data('file_name'));
+				$data = array(
+					'filename' => $filename ,
+					'title' => $this->input->post('title')
+				);
+				$this->Files_Model->insert_file($filename,$this->input->post('title'));
+				$file_id = $this->db->insert_id();
+	
+			
+				$list_id = $this->Task_model->get_task_list_id($task_id);
+	
+				// Post values to array
+	
+				$data = array(
+					'task_name' => $this->input->post('task_name') ,
+					'task_body' => $this->input->post('task_body') ,
+					'due_date' => $this->input->post('due_date') ,
+					'list_id' => $list_id ,
+					'file_id' => $file_id
+				);
 
-            // Post values to array
+			}
+			else
+			{
+				
+						
+				$list_id = $this->Task_model->get_task_list_id($task_id);
+	
+				// Post values to array
+	
+				$data = array(
+					'task_name' => $this->input->post('task_name') ,
+					'task_body' => $this->input->post('task_body') ,
+					'due_date' => $this->input->post('due_date') ,
+					'list_id' => $list_id 
+					);
 
-            $data = array(
-                'task_name' => $this->input->post('task_name') ,
-                'task_body' => $this->input->post('task_body') ,
-                'due_date' => $this->input->post('due_date') ,
-                'list_id' => $list_id
-            );
+	
+			}
             if ($this->Task_model->edit_task($task_id, $data))
             {
                 $this->session->set_flashdata('task_updated', 'Your task has been updated');

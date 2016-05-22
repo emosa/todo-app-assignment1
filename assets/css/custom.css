@@ -70,7 +70,12 @@ h4{
 
 .ctask{
 	
-	size: 2em;}
+	size: 2em;
+	}
+	
+input[type="file"] { padding-left: 0; }
+input[type="submit"] { width: auto; }
+ 
 .footer{
    bottom:0;
    width:100%;
