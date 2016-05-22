@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c13c3143-d694-49e6-b612-f9b49ce3277b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/upload.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/files_model.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/upload_form.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/ajaxfileupload.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/js/site.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/todo_2016-05-15.sql" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/img/bck3.jpg" afterPath="$PROJECT_DIR$/assets/img/bck3.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/img/bck3.png" afterPath="$PROJECT_DIR$/assets/img/bck3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/img/bck4.jpg" afterPath="$PROJECT_DIR$/assets/img/bck4.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/img/mybck.png" afterPath="$PROJECT_DIR$/assets/img/mybck.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/img/texture1.png" afterPath="$PROJECT_DIR$/assets/img/texture1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/img/top.png" afterPath="$PROJECT_DIR$/assets/img/top.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Git-hub.txt" afterPath="$PROJECT_DIR$/Git-hub.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tasks.php" afterPath="$PROJECT_DIR$/app/controllers/tasks.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/task_model.php" afterPath="$PROJECT_DIR$/app/models/task_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/main.php" afterPath="$PROJECT_DIR$/app/views/layouts/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tasks/add_task.php" afterPath="$PROJECT_DIR$/app/views/tasks/add_task.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tasks/edit_task.php" afterPath="$PROJECT_DIR$/app/views/tasks/edit_task.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tasks/show.php" afterPath="$PROJECT_DIR$/app/views/tasks/show.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/custom.css" afterPath="$PROJECT_DIR$/assets/css/custom.css" />
-    </list>
+    <list default="true" id="c13c3143-d694-49e6-b612-f9b49ce3277b" name="Default" comment="" />
     <ignored path="todo-app.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
