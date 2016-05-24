@@ -12,6 +12,7 @@
     <link href="<?php echo base_url(); ?>assets/css/logo-nav.css" rel="stylesheet" type="text/css">
 
     <script src="<?php echo base_url(); ?>assets/js/jquery-1.12.2.min.js" type="text/javascript"></script>
+
 </head>
 <body>
 <div class="navbar navbar-light" style="background-color: rgba(240, 233, 183, 0.8);">
