@@ -20,9 +20,9 @@ class User_model extends CI_Model{
 
 
     public function login_user($username,$passowrd){
-        //Secure password
+
         $enc_password = md5($passowrd);
-        //Validate
+
         $this->db->where('username',$username);
         $this->db->where('password',$enc_password);
 

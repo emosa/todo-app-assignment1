@@ -10,17 +10,15 @@ class Tasks extends CI_Controller
     function show($id)
     {
 			$this->load->model('Files_Model');
-        // Get single task info
+
 
         $data['task'] = $this->Task_model->get_task($id);
-		//print_r($data['task']->file_id);exit;
+
         $data['file'] = $this->Files_Model->get_files($data['task']->file_id);
 
-        // Check if marked complete
 
         $data['is_complete'] = $this->Task_model->check_if_complete($id);
 
-        // Load view and layout
 
         $data['main_content'] = 'tasks/show';
         $this->load->view('layouts/main', $data);
@@ -42,11 +40,9 @@ class Tasks extends CI_Controller
             $data['error'] =''; 
 		if ($this->form_validation->run() == FALSE)
         {
-            // Get list name for view
 
             $data['list_name'] = $this->Task_model->get_list_name($list_id);
 
-            // Load view and layout
 
             $data['main_content'] = 'tasks/add_task';
             $this->load->view('layouts/main', $data);
@@ -57,12 +53,10 @@ class Tasks extends CI_Controller
 
             $data['list_name'] = $this->Task_model->get_list_name($list_id);
 
-            // Load view and layout
 
             $data['main_content'] = 'tasks/add_task';
             $this->load->view('layouts/main', $data);
 
-            //$this->load->view('upload_form', $error); 
          }
         else
         {
@@ -75,10 +69,6 @@ class Tasks extends CI_Controller
             );
 			$this->Files_Model->insert_file($filename,$this->input->post('title'));
 			$file_id = $this->db->insert_id();
-            // Post values to array
-
-            //$data = array('upload_data' => $this->upload->data()); 
-
 
 
             $data = array(
@@ -92,7 +82,6 @@ class Tasks extends CI_Controller
             {
                 $this->session->set_flashdata('task_created', 'Your task has been created');
 
-                // Redirect to index page with error above
 
                 redirect('lists/show/' . $list_id . '');
             }
@@ -146,9 +135,6 @@ class Tasks extends CI_Controller
         else
         {
 
-            // Get list id
-			//$this->upload->do_upload('file');
-			//$this->upload->data('file_name');exit;
 
  			$this->input->post('alreadyuploadedfile');
 			if($this->upload->do_upload('file'))
@@ -198,7 +184,6 @@ class Tasks extends CI_Controller
             {
                 $this->session->set_flashdata('task_updated', 'Your task has been updated');
 
-                // Redirect to index page with error aboves
 
                 redirect('lists/show/' . $list_id . '');
             }
@@ -213,7 +198,6 @@ class Tasks extends CI_Controller
         {
             $list_id = $this->Task_model->get_task_list_id($task_id);
 
-            // Create Message
 
             $this->session->set_flashdata('marked_complete', 'Task has been marked complete');
             redirect('/lists/show/' . $list_id . '');
@@ -228,7 +212,6 @@ class Tasks extends CI_Controller
         {
             $list_id = $this->Task_model->get_task_list_id($task_id);
 
-            // Create Message
 
             $this->session->set_flashdata('marked_new', 'Task has been marked new');
             redirect('/lists/show/' . $list_id . '');
@@ -240,15 +223,12 @@ class Tasks extends CI_Controller
     function delete($list_id, $task_id)
     {
 
-        // Delete list
 
         $this->Task_model->delete_task($task_id);
 
-        // Create Message
 
         $this->session->set_flashdata('task_deleted', 'Your task has been deleted');
 
-        // Redirect to list index
 
         redirect('lists/show/' . $list_id . '');
     }

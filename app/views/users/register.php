@@ -4,10 +4,10 @@
 
 <h1>Register</h1>
 <p>Please fill out the form below to create an account</p>
-<!--Display Errors-->
+
 <?php echo validation_errors('<p class="text-error">'); ?>
 <?php echo form_open('users/register'); ?>
-<!--Field: First Name-->
+
 <p>
     <?php echo form_label('First Name:'); ?>
     <?php
@@ -18,7 +18,7 @@
     ?>
     <?php echo form_input($data); ?>
 </p>
-<!--Field: Last Name-->
+
 <p>
     <?php echo form_label('Last Name:'); ?>
     <?php
@@ -30,7 +30,7 @@
     <?php echo form_input($data); ?>
 </p>
 
-<!--Field: Email Address-->
+
 <p>
     <?php echo form_label('Email Address:'); ?>
     <?php
@@ -42,7 +42,7 @@
     <?php echo form_input($data); ?>
 </p>
 
-<!--Field: Username-->
+
 <p>
     <?php echo form_label('Username:'); ?>
     <?php
@@ -54,7 +54,7 @@
     <?php echo form_input($data); ?>
 </p>
 
-<!--Field: Password-->
+
 <p>
     <?php echo form_label('Password:'); ?>
     <?php
@@ -66,7 +66,7 @@
     <?php echo form_password($data); ?>
 </p>
 
-<!--Field: Password2-->
+
 <p>
     <?php echo form_label('Confirm Password:'); ?>
     <?php
@@ -78,7 +78,7 @@
     <?php echo form_password($data); ?>
 </p>
 
-<!--Submit Buttons-->
+
 <?php $data = array("value" => "Register",
     "name" => "submit",
     "class" => "btn btn-success"); ?>

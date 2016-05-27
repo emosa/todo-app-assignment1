@@ -3,7 +3,7 @@
         echo $list_name;
         ?></strong></p>
 
-<!--Display Errors-->
+
 <?php echo $error;?> 
 <?php
 
@@ -15,7 +15,7 @@ echo validation_errors('<p class="text-error">');
 echo form_open_multipart('tasks/add/' . $this->uri->segment(3) . '');
 ?>
 
-<!--Field: Task Name-->
+
 <p>
     <?php
     echo form_label('Task Name:');
@@ -31,7 +31,7 @@ echo form_open_multipart('tasks/add/' . $this->uri->segment(3) . '');
     ?>
 </p>
 
-<!--Field: Task Body-->
+
 <p>
     <?php
     echo form_label('Task Body:');
@@ -47,7 +47,7 @@ echo form_open_multipart('tasks/add/' . $this->uri->segment(3) . '');
     ?>
 </p>
 
-<!--Field: Date-->
+
 <p>
     <?php
     echo form_label('Date:');
@@ -62,10 +62,6 @@ echo form_open_multipart('tasks/add/' . $this->uri->segment(3) . '');
     <input type="file" name="file" id="userfile" size="20" />
 
 
-
-
-
-<!--Submit Buttons-->
 <?php
 $data = array(
     "value" => "Add Task",

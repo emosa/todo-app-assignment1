@@ -39,7 +39,6 @@ endif;
 if ($this->session->userdata('logged_in')):
     ?>
     <br />
-    <!--Display Errors-->
     <?php
     echo validation_errors('<p class="text-error">');
     ?>
@@ -56,7 +55,7 @@ if ($this->session->userdata('logged_in')):
         <?php
         echo form_input($data);
         ?>
-        <!--Submit Buttons-->
+
         <?php
         $data = array(
             "value" => "Submit",
@@ -73,6 +72,9 @@ if ($this->session->userdata('logged_in')):
         ?>
     </p>
     <br />
+    <div id="accordion">
+       
+        <div>
     <h3>Latest Lists</h3>
     <table class="table table-striped" width="50%" cellspacing="5" cellpadding="5">
         <tr>
@@ -107,7 +109,8 @@ if ($this->session->userdata('logged_in')):
         endif;
         ?>
     </table>
-
+        </div>
+        <div>
     <h3>Latest Tasks</h3>
     <table class="table table-striped" width="50%" cellspacing="5" cellpadding="5">
         <tr>
@@ -146,6 +149,8 @@ if ($this->session->userdata('logged_in')):
         endif;
         ?>
     </table>
+    </div>
+    </div>
     <?php
 endif;
 ?>
